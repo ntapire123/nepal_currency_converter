@@ -1,0 +1,13 @@
+dart
+import '../models/currency_model.dart';
+
+class CurrencyService {
+  static double convertNprTo({
+    required double nprAmount,
+    required String targetCode,
+  }) {
+    final currency = CurrencyData.getByCode(targetCode);
+    final converted = currency.convertFromNpr(nprAmount);
+    return double.parse(converted.toStringAsFixed(2));
+  }
+}
